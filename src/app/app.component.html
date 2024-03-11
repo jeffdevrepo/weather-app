@@ -1,0 +1,22 @@
+<app-loader></app-loader>
+
+<div class="flex items-stretch flex-col h-full">
+  <div class="bg-darker py-4 shadow-xl z-10">
+    <div class="container mx-auto px-5 flex items-center justify-between">
+      <div class="logo">
+        <span class="text-white text-2xl tracking-widest font-bold uppercase">Weather</span>
+        <p class="text-sm text-white">Forecast Application</p>
+      </div>
+      <div *ngIf="auth.isAuthenticated$ | async" class="flex items-center">
+        <ul class="flex items-center mr-8">
+          <li><a routerLink="profile" routerLinkActive="active" class="text-white text-sm inline-block p-2">Profile</a></li>
+          <li><a routerLink="weather-forecast" class="text-white text-sm inline-block p-2">Forecast</a></li>
+        </ul>
+        <button class="bg-danger text-white px-4 py-2 rounded text-sm" (click)="auth.logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
+
