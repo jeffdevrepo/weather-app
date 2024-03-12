@@ -1,21 +1,10 @@
-<div class="container mx-auto px-4">
-  <div class="rounded-lg bg-light shadow-lg mt-10 flex items-center justify-between mb-10">
-    <div class="p-8">
-      <h2 class="font-semibold text-8xl text-darker">88°</h2>
-      <p class="text-2xl font-semibold text-darker">Mostly cloudy</p>
-    </div>
-    <div class="p-8 pl-0">
-      <p class="text-xl font-semibold text-darker text-right mb-2">March 11, 2024</p>
-      <p class="text-xl font-semibold text-darker text-right mb-2">55% Humidity</p>
-      <p class="text-xl font-semibold text-darker text-right">29.02 Pressure</p>
-    </div>
-  </div>
-
-  <table class="table-fixed w-full">
+<div class="container mx-auto px-4" *ngIf="forecast">
+  <h2 class="font-medium text-darker text-2xl mt-10">Forecast for <span class="text-primary">{{forecast.city?.name}}</span></h2>
+  <table class="table-fixed w-full my-10">
     <thead>
       <tr>
         <th class="text-left px-4 py-3 bg-light rounded-tl-lg">Date</th>
-        <th class="text-left px-4 py-3 bg-light">Temperature(°F)</th>
+        <th class="text-left px-4 py-3 bg-light">Temperature (°F)</th>
         <th class="text-left px-4 py-3 bg-light">Description</th>
         <th class="text-left px-4 py-3 bg-light">Main</th>
         <th class="text-left px-4 py-3 bg-light">Pressure</th>
@@ -23,29 +12,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="px-4 py-3 border-b border-light border-l">The Sliding Mr. Bones</td>
-        <td class="px-4 py-3 border-b border-light">Malcolm Lockyer</td>
-        <td class="px-4 py-3 border-b border-light">1961</td>
-        <td class="px-4 py-3 border-b border-light">The Sliding Mr. Bones</td>
-        <td class="px-4 py-3 border-b border-light">Malcolm Lockyer</td>
-        <td class="px-4 py-3 border-b border-light border-r">1961</td>
-      </tr>
-      <tr>
-        <td class="px-4 py-3 border-b border-light border-l">Witchy Woman</td>
-        <td class="px-4 py-3 border-b border-light">The Eagles</td>
-        <td class="px-4 py-3 border-b border-light">1972</td>
-        <td class="px-4 py-3 border-b border-light">Witchy Woman</td>
-        <td class="px-4 py-3 border-b border-light">The Eagles</td>
-        <td class="px-4 py-3 border-b border-light border-r">1972</td>
-      </tr>
-      <tr>
-        <td class="px-4 py-3 border-b border-light border-l">Shining Star</td>
-        <td class="px-4 py-3 border-b border-light">Earth, Wind, and Fire</td>
-        <td class="px-4 py-3 border-b border-light">1975</td>
-        <td class="px-4 py-3 border-b border-light">Shining Star</td>
-        <td class="px-4 py-3 border-b border-light">Earth, Wind, and Fire</td>
-        <td class="px-4 py-3 border-b border-light border-r">1975</td>
+      <tr *ngFor="let weather of forecast.list">
+        <td class="px-4 py-3 border-b border-light border-l">{{weather.dt_txt | date: 'MMMM dd, yyyy'}}</td>
+        <td class="px-4 py-3 border-b border-light">{{(1.8 * (weather.main.temp -273) + 32).toFixed(0)}} degrees</td>
+        <td class="px-4 py-3 border-b border-light capitalize">{{weather.weather[0].description}}</td>
+        <td class="px-4 py-3 border-b border-light">{{weather.weather[0].main}}</td>
+        <td class="px-4 py-3 border-b border-light">{{weather.main.pressure}}</td>
+        <td class="px-4 py-3 border-b border-light border-r">{{weather.main.humidity}}</td>
       </tr>
     </tbody>
   </table>
