@@ -3,22 +3,22 @@
   <table class="table-fixed w-full my-10">
     <thead>
       <tr>
-        <th class="text-left px-4 py-3 bg-light rounded-tl-lg">Date</th>
+        <th class="text-left px-4 py-3 bg-light">Date</th>
         <th class="text-left px-4 py-3 bg-light">Temperature (°F)</th>
         <th class="text-left px-4 py-3 bg-light">Description</th>
         <th class="text-left px-4 py-3 bg-light">Main</th>
         <th class="text-left px-4 py-3 bg-light">Pressure</th>
-        <th class="text-left px-4 py-3 bg-light rounded-tr-lg">Humidity</th>
+        <th class="text-left px-4 py-3 bg-light">Humidity</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let weather of forecast.list">
-        <td class="px-4 py-3 border-b border-light border-l">{{weather.dt_txt | date: 'MMMM dd, yyyy'}}</td>
+        <td class="px-4 py-3 border-b border-light">{{weather.dt_txt | date: 'MMMM dd, yyyy'}}</td>
         <td class="px-4 py-3 border-b border-light">{{(1.8 * (weather.main.temp -273) + 32).toFixed(0)}} degrees</td>
         <td class="px-4 py-3 border-b border-light capitalize">{{weather.weather[0].description}}</td>
         <td class="px-4 py-3 border-b border-light">{{weather.weather[0].main}}</td>
         <td class="px-4 py-3 border-b border-light">{{weather.main.pressure}}</td>
-        <td class="px-4 py-3 border-b border-light border-r">{{weather.main.humidity}}</td>
+        <td class="px-4 py-3 border-b border-light">{{weather.main.humidity}}</td>
       </tr>
     </tbody>
   </table>
