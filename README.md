@@ -1,27 +1,28 @@
-# WeatherApp
+# Weather Application with Auth0 Authentication
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+Weather application is a mini project application that is built on a standard implementation of <a href="https://auth0.com/">Auth0</a> authentication for it's users and <a href="https://openweathermap.org/">OpenWeather API</a> for API integration. 
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Designed to work with Auth0 Authentication.
+- Easy weather monitoring via "Search your city" functionality.
 
-## Code scaffolding
+## Clone the application
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+In order for you to copy this project on your local, there are two ways to do it:
 
-## Build
+1. Clone the public repository through GitHub CLI
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Open your CLI inside the folder where you want to paste the project. Copy and paste this command `gh repo clone Jeff-coding/weather-app` to your CLI and run it.
 
-## Running unit tests
+2. Clone via GitHub Desktop GUI
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+If you are not a fan of doing it on CLI. You may use <a href="https://desktop.github.com/">GitHub Desktop</a>. Download and install it on your computer. Then going back to the Github repo, click the green "Code" dropdown and click the "Open with GitHub Desktop." Follow the instructions on where to install.
 
-## Running end-to-end tests
+## Installing dependencies
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+This project has already collected all the necessary packages needed throught `package.json` file. To install all the dependencies, open your CLI inside the project folder. Then copy and run this command `npm install`. All of the necessary dependencies will be installed.
 
-## Further help
+## Running the application
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Copy and run this command `ng serve --open` on your CLI to run a development server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
